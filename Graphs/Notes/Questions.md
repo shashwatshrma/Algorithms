@@ -1,0 +1,5 @@
+- Where are Bellman Ford and Dijkstra's used in real life
+- Why's Bellman preferred for distributed systems
+- Real life use case and shortcomings of Prim's or Kruskal's
+- Can IDDFS and BFS be used interchangeably leaving aside the computation cost
+- Shortcomings of Floyd Warshall
