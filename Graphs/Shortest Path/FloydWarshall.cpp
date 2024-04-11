@@ -60,7 +60,7 @@ void floydWarshall(vector<tuple<int, int, int>> &graph, int vertices)
     {
         for(int j=0;j<vertices;j++)
         {
-            cout<<i<<" -> "<<j<<": "<<dist[i][j];
+            cout<<i<<" -> "<<j<<": "<<dist[i][j]<<endl;
         }
     }
 }
