@@ -35,11 +35,12 @@ bool boyer_moore(string str, string pat)
         {
             return true;
         }
-        else
+        if(i+1>=strlen)
         {
-            i+=bad_match[str[i]-'a'];
-            j=patlen-1;
+            return false;
         }
+        i+=bad_match[str[i+1]-'a'];
+        j=patlen-1;
     }
     return false;
 }
@@ -55,3 +56,43 @@ int main()
         cout<<"Pattern absent in the string"<<endl;
     return 0;
 }
+
+/*
+class Solution {
+    vector<int> calcBadMatch(string &pat)
+    {
+        int len=pat.length();
+        vector<int> bm(26, len);
+        for(int i=len-1;i>=0;i--)
+        {
+            if(bm[pat[i]-'a'] == len)
+                bm[pat[i]-'a'] = max(1, len-1-i);
+        }
+        return bm;
+    }
+public:
+    int strStr(string haystack, string needle) {
+        vector<int> bm = calcBadMatch(needle);
+        int i=needle.length()-1;
+        int j=needle.length()-1;
+        for(int i=0;i<26;i++)
+        {
+            cout<<(char)(i+'a')<<" "<<bm[i]<<endl;
+        }
+        while(i<haystack.length())
+        {
+            int oi=i;
+            while(j>=0 && i>=0 && needle[j]==haystack[i])
+            {
+                j--;
+                i--;
+            }
+            if(j<0)
+                return i+1;
+            i=oi+bm[haystack[i]-'a'];
+            j=needle.length()-1;
+        }
+        return -1;
+    }
+};
+*/
